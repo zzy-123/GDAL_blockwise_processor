@@ -107,7 +107,7 @@ def load_net(model_path, device='cuda'):
     net.eval()
     return net
 
-@blockwise_processor(use_blocks=False)
+@blockwise_processor(use_blocks=True)
 def predict_block( block_data, net, device='cuda', threshold=0.5, mask_multiplier=1):
     # 转换为张量
     x = torch.from_numpy(block_data).to(device)
